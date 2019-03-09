@@ -1,0 +1,36 @@
+<odoo>
+  <record id="tds_wizard_view" model="ir.ui.view">
+      <field name="name">tds_date.report.tds</field>
+      <field name="model">tds_report.report.tds</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+          <form string="Attendance Recap Report">
+              <group>
+                  <group>
+                      <field name="date_start"/>
+                  </group>
+                  <group>
+                      <field name="date_end"/>
+                  </group>                  
+              </group>
+              <footer>
+                  <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                  <button string="Cancel" special="cancel"/>
+              </footer>
+          </form>
+      </field>
+  </record>
+
+  <act_window id="action_tds_report_wizard"
+              name="Stock Valuation Report"
+              res_model="tds_report.report.tds"
+              view_mode="form"
+              target="new"/>
+    <menuitem
+        id="menu_tds_report"
+        name="TDS Report"
+        parent="tds_calculation.tds_configuration"
+        action="action_tds_report_wizard"
+       />
+
+</odoo>
